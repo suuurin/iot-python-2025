@@ -12,6 +12,10 @@ class Person:
         self.weight = weight
         self.gender = gender
 
+    def __str__(self):  #객체 출력을 문자열 포맷팅!
+        retStr = f'{self.name}\n{self.age}\n{self.weight}\n{self.gender}\n'
+        return retStr
+
     # 동사(기상)인 멤버함수(메서드)
     def getup(self):    #myself
         print(f'{self.name}이(가) 일어납니다.')
