@@ -142,10 +142,14 @@ IoT 개발자 기초 프로그래밍 언어 리포지토리
 https://github.com/user-attachments/assets/d05619cb-d447-45e2-bbba-510b0dbc766e
 
 
-        - 챗gpt 윈도우앱(tkinter) 만들기
-    
-    - 주피터 노트북 학습
-    - PyQT 학습
+    - 주피터 노트북 기본 사용법
+        - 파이썬을 사용, 연구를 목적으로 하는 리포트 작성에 특화된 기술
+        - 주피터 프로젝트에서 나온 결과물
+        - Ctrl + Shift + P(명령 팔레트) 에서 시작
+            - create : 새 Jupyter 노트북 클릭
+            - 무조건 저장 먼저(.ipynb)
 
-    - 토이프로젝트
-        - 윈도우앱(PyQT) 
+    - GUI 학습(tkinter)
+        - GUI(Graphic User Interface) - 그래픽 사용자 인터페이스
+        - CLI(Console Line Interface) - GUI 이전에 사용자 인터페이스. 사용이 불편. 사용자가 명령어를 거의 다 외워서 사용
+

@@ -29,7 +29,6 @@ def run():
                 print('영화 입력 성공!')
             except Exception as e:
                 print(f'영화 입력 실패!! {e}')
-            input("\n> 계속하려면 엔터를 누르세요...")  # 엔터 입력 대기
 
         elif sel_menu == 2:
             print('영화 출력')
@@ -53,16 +52,20 @@ def run():
             break   #반복문 탈출.
         else:
             pass # 항목 중 없으면 아무것도 하지 않음
-
-        clearScreen()
+        
+        input() #입력대기 : 엔터치면 넘어감
+        clearScreen() # 메뉴 기능이 완료되면 화면 클리어
 
 # 영화검색 함수
 def search_movie(items: list, title: str):
+    count = 0
     for item in items: #item이 Movie 클래스인지 알 수 없음
         if item.isNameContain(title): # 오타발생 위험!
-            count += 1  #검색된 결과 있음
+            count += 1  #검색된 결과가 있음
+            print()
             print(item)
-            print('-------------')
+            print('----------')
+
     print(f'검색 데이터수: {count} 개')
 
 def del_movie(items: list, title: str):
@@ -110,14 +113,10 @@ def set_movie():
 # lst 변수는 list 타입이라고 지정
 def get_movie(items: list):
     for item in items:
-        print(item) # Movie 객체
-        print('-----------')
+        print(item)  # Movie 객체
+        print('----------')  # 각 영화 아이템별 구분자
     
     print(f'총 데이터수: {len(items)} 개')
-
-    if os.name == 'nt': #윈도우 환경이면
-        os.system('pause')  #press any key to continue... 메시지 표시
-    #출력시 클린 스크린 되어버리는 문제 해결용 코드
 
 def set_menu():
     str_menu = (f'내 영화 앱 v{VERSION}\n'
