@@ -7,4 +7,5 @@ t.shape('turtle')
 for i in range(50):
     t.forward(100)
     t.left(120)
+    
 t.done() # 반드시 필요
