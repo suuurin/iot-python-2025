@@ -1,11 +1,11 @@
 import os   # 운영체제 모듈
 from Movie import Movie # 모듈, 클래스
 
-VERSION = 0.1
+VERSION = 0.5
 
 def clearScreen():  #os에 특화된 팁.
     command = 'clear'
-    if os.name in('nt', dos):
+    if os.name in('nt', 'dos'):
         command ='cls'
     
     os.system(command)
@@ -22,9 +22,14 @@ def run():
     while True:
         sel_menu = set_menu()
         if sel_menu == 1:
-            print('영화 입력')
-            movie = set_movie()
-            lst_movie.append(movie)
+            # print('영화 입력')
+            try:
+                movie = set_movie()
+                lst_movie.append(movie)
+                print('영화 입력 성공!')
+            except Exception as e:
+                print(f'영화 입력 실패!! {e}')
+            input("\n> 계속하려면 엔터를 누르세요...")  # 엔터 입력 대기
 
         elif sel_menu == 2:
             print('영화 출력')
@@ -49,11 +54,16 @@ def run():
         else:
             pass # 항목 중 없으면 아무것도 하지 않음
 
+        clearScreen()
+
 # 영화검색 함수
 def search_movie(items: list, title: str):
     for item in items: #item이 Movie 클래스인지 알 수 없음
         if item.isNameContain(title): # 오타발생 위험!
+            count += 1  #검색된 결과 있음
             print(item)
+            print('-------------')
+    print(f'검색 데이터수: {count} 개')
 
 def del_movie(items: list, title: str):
     for i, item in enumerate(items):
@@ -101,6 +111,13 @@ def set_movie():
 def get_movie(items: list):
     for item in items:
         print(item) # Movie 객체
+        print('-----------')
+    
+    print(f'총 데이터수: {len(items)} 개')
+
+    if os.name == 'nt': #윈도우 환경이면
+        os.system('pause')  #press any key to continue... 메시지 표시
+    #출력시 클린 스크린 되어버리는 문제 해결용 코드
 
 def set_menu():
     str_menu = (f'내 영화 앱 v{VERSION}\n'
