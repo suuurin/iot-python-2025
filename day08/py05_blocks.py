@@ -132,7 +132,7 @@ def main():
             BALL.draw_E()
             PADDLE.draw_R()
 
-            for i in BLOCK: #Block()
+            for i in BLOCK: #Block() 
                 i.draw_R()
 
         pygame.display.update()
